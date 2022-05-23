@@ -6,7 +6,7 @@ As an introduction into submmersing myself into JavaScript, I have created the c
 
 # Development Environment
 
-I used JavaScript with a some HTML and CSS.*
+I used JavaScript with a some HTML and CSS code.
 
 I also used visual studio code to create and compile my code.
 
