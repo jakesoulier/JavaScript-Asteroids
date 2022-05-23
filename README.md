@@ -2,7 +2,7 @@
 As an introduction into submmersing myself into JavaScript, I have created the classic asteroids game all in JavaScript.
 
 
-[JavaScript Asteroid Game](https://youtube)
+[JavaScript Asteroid Game]([https://youtube](https://www.youtube.com/watch?v=S76ycRB8o2g&ab_channel=jakesoulier))
 
 # Development Environment
 
