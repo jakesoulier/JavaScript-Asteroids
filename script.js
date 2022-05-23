@@ -36,6 +36,9 @@ var ship = {
 }
 
 setInterval(update, FPS); // calls the update funtion every fps in milliseconds
+// let rock = new Rocks();
+// Rocks.Draw();
+// new Rocks();
 
 function update() {
     // background
@@ -48,7 +51,7 @@ function update() {
     ctx.strokeStyle = "white";
     ctx.lineWidth = 3;
     ctx.beginPath();
-    // top point of triangle
+    // top point of triangle    
     ctx.moveTo(ship.x + 4 / 3 * 15 * Math.cos(ship.rotateAdjust), ship.y - 4 / 3 * 15 * Math.sin(ship.rotateAdjust));
     // left point of triangle
     ctx.lineTo(ship.x - 15 * (2 / 3 * Math.cos(ship.rotateAdjust) + Math.sin(ship.rotateAdjust)), ship.y + 15 * (2 / 3 * Math.sin(ship.rotateAdjust) - Math.cos(ship.rotateAdjust)));
@@ -81,5 +84,52 @@ function update() {
     if (ship.y > 500) {
         ship.y = 0;
     }
+    rocks.Draw();
+    rocks.checkCollision();
+    // this.x += 1;
+    // console.log(this.x);
 
+}
+
+class Rocks {
+    constructor() {
+        this.x = 0;
+        this.y = 0;
+        this.speed = 0.1;
+        this.velX = 0;
+        this.velY = 0;
+    }
+
+    checkCollision() {
+        if (((range(this.x, this.x + 10)).includes(ship.x)) || (ship.y <= 20)) {
+            alert("you crashed into the rock");
+        }
+
+    }
+
+    // method to draw an asteroid
+    Draw() {
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 3;
+        ctx.beginPath()
+        ctx.lineTo(this.x + 10, this.y + 10);
+        ctx.lineTo(this.x + 5, this.y + 30);
+        ctx.lineTo(this.x + 10, this.y + 50);
+        ctx.lineTo(this.x + 30, this.y + 30);
+        ctx.closePath();
+        ctx.stroke();
+        // move asteroid forward
+        this.x += 1;
+    }
+}
+
+let rocks = new Rocks();
+
+
+function range(start, end) {
+    var ans = [];
+    for (let i = start - 5; i <= end; i += 0.1) {
+        ans.push(i);
+    }
+    return ans;
 }
